@@ -1,26 +1,30 @@
 ﻿using System;
-using System.Windows;
-using SignalR.Client.Hubs;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Microsoft.Phone.Controls;
+using SignalR.Client.Hubs;
 using Newtonsoft.Json;
 
-namespace SignalRWpf
+namespace Wp7SignalR
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : PhoneApplicationPage
     {
         public HubConnection hubConnection;
         public IHubProxy chatHub;
 
-        public MainWindow()
+        public MainPage()
         {
             InitializeComponent();
 
-            textBlockMessages.TextWrapping = TextWrapping.WrapWithOverflow;
-
-            textBlockMessages.Dispatcher.BeginInvoke(new Action(() => textBlockMessages.Text = "This program, SignalRWpf, begins\n"));
+            textBlockMessages.Dispatcher.BeginInvoke(new Action(() => textBlockMessages.Text = "This program, SignalRWp7, begins\n"));
 
             hubConnection = new HubConnection("http://localhost:49522/");
 
@@ -38,24 +42,25 @@ namespace SignalRWpf
             });
 
             hubConnection.Received += data =>
-                 {
-                     HubBub deserializedHubBub = JsonConvert.DeserializeObject<HubBub>(data);
-                     var args0 = deserializedHubBub.Args[0];
-                     UpdateMessages(args0);
-                 };
+            {
+                HubBub deserializedHubBub = JsonConvert.DeserializeObject<HubBub>(data);
+                var args0 = deserializedHubBub.Args[0];
+                UpdateMessages(args0);
+            };
 
             chatHub = hubConnection.CreateProxy("Chat");
+
         }
 
-        private void btnBroadcast_Click(object sender, RoutedEventArgs e)
+        private void buttonBroadcast_Click(object sender, RoutedEventArgs e)
         {
-            chatHub.Invoke("Send", textBoxBroadcast.Text).Wait();
+            chatHub.Invoke("Send", textBoxBroadcast.Text);// .Wait();
             textBoxBroadcast.Text = "";
         }
 
         void UpdateMessages(string msg)
         {
-            textBlockMessages.Dispatcher.BeginInvoke(new Action(() => textBlockMessages.Text += msg.ToString()+"\n"));
+            textBlockMessages.Dispatcher.BeginInvoke(new Action(() => textBlockMessages.Text += msg.ToString() + "\n"));
         }
     }
 
@@ -65,5 +70,4 @@ namespace SignalRWpf
         public string Method { get; set; }
         public List<string> Args { get; set; }
     }
-
 }
