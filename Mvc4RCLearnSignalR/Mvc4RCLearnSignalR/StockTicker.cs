@@ -5,8 +5,11 @@ using System.Threading;
 using SignalR.Hubs;
 using SignalR.Hosting.AspNet;
 using SignalR.Infrastructure;
+using SignalR;
+//using SignalR;
 
-namespace SignalR.StockTicker.SignalR.StockTicker
+// namespace SignalR.StockTicker.SignalR.StockTicker
+namespace Mvc4RCLearnSignalR.SignalR.StockTicker
 {
     public class StockTicker
     {

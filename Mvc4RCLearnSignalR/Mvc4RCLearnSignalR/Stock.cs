@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace SignalR.StockTicker.SignalR.StockTicker
+//namespace SignalR.StockTicker.SignalR.StockTicker
+namespace Mvc4RCLearnSignalR.SignalR.StockTicker
+
 {
     public class Stock
     {

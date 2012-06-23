@@ -146,9 +146,9 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignalR.Sample\Stock.cs" />
-    <Compile Include="SignalR.Sample\StockTicker.cs" />
-    <Compile Include="SignalR.Sample\StockTickerHub.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="StockTicker.cs" />
+    <Compile Include="StockTickerHub.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -212,9 +212,8 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
-    <Content Include="SignalR.Sample\SignalR.StockTicker.js" />
-    <Content Include="SignalR.Sample\StockTicker.css" />
-    <Content Include="SignalR.Sample\StockTicker.html" />
+    <Content Include="SignalR.StockTicker.js" />
+    <Content Include="StockTicker.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

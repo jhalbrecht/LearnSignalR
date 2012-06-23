@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/themes/base/css", "~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+                @Scripts.Render("~/bundles/jquery")
     </head>
     <body>
         <header>
@@ -23,7 +24,7 @@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                            <li>Stock Ticker Demo</li>
+                            <li><a href="~/SignalR.Sample/StockTicker.html"> Stock Ticker Demo</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -38,7 +39,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - Me</p>
                 </div>
                 <div class="float-right">
                     <ul id="social">
@@ -49,7 +50,7 @@
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/jquery")
+@*        @Scripts.Render("~/bundles/jquery")*@
         @RenderSection("scripts", required: false)
     </body>
 </html>

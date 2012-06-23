@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using SignalR.Hubs;
 
-namespace SignalR.StockTicker.SignalR.StockTicker
+// namespace SignalR.StockTicker.SignalR.StockTicker
+namespace Mvc4RCLearnSignalR.SignalR.StockTicker
 {
     [HubName("stockTicker")]
     public class StockTickerHub : Hub
