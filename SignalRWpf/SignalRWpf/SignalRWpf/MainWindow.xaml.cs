@@ -22,7 +22,7 @@ namespace SignalRWpf
 
             textBlockMessages.Dispatcher.BeginInvoke(new Action(() => textBlockMessages.Text = "This program, SignalRWpf, begins\n"));
 
-            hubConnection = new HubConnection("http://thelolfx.net/");
+            hubConnection = new HubConnection("http://localhost:49522/");
 
             hubConnection.Start().ContinueWith(task =>
             {
